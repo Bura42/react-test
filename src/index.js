@@ -12,6 +12,5 @@ const el = (
     </div>
 );
 
-
     console.log(el);
 ReactDom.render(el,document.getElementById('root'));
