@@ -1,34 +1,28 @@
 import React from 'react';
 import ReactDom from 'react-dom';
-
-const items = ['learn react', 'build aws app'];
-const TodoList = () => {
-    return (
-        <ul>
-            <li>{ items[0] }</li>
-            <li>{ items[1] }</li>
-        </ul>
-    );
-};
-
-const AppHeader = () => {
-    return  <h1>My todo list</h1>
-};
-
-const SearchPanel = () => {
-    return  <input placeholder='search'/>
-};
+import AppHeader from './components/app-header';
+import SearchPanel from './components/search-panel';
+import TodoList from './components/todo-list';
 
 const App = () => {
 
+
+    const todoData = [
+        {label:'drink coffee', important:false, id: 1},
+        {label:'Make aws app', important:true, id: 2},
+        {label:'have a lunch', important:false, id: 3}
+    ];
+
+    const isLoggedIn = false;
     const loginBox = <span>Log in please</span>;
+    const WelcomeBox = <span>Welcome Back</span>
 
     return(
         <div>
-            { loginBox }
+            { isLoggedIn ? WelcomeBox : loginBox }
             <AppHeader/>
             <SearchPanel/>
-            <TodoList />
+            <TodoList todos={todoData}/>
         </div>
     );
 };
